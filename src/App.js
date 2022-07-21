@@ -12,7 +12,6 @@ function App() {
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
   const [lastedId, setLastedId] = useState(0);
-  const [textFieldEdit, setTextFieldEdit] = useState("");
 
   const handleAdd = (event) => {
     setTodo(event.target.value);
@@ -74,14 +73,12 @@ function App() {
           todo,
           todoList,
           lastedId,
-          textFieldEdit,
           handleAdd,
           handleTodoListAdd,
           handleDelete,
           handleStrike,
           handleEdit,
           handleSave,
-          setTextFieldEdit,
         }}
       >
         <ThemeProvider theme={theme}>

@@ -5,10 +5,10 @@ import { useContext, useState } from 'react';
 
 function TodoEditComponent({id, content}) {
   const context = useContext(TodoContext);
-  context.setTextFieldEdit(content);
-
+  const [textFieldEdit, setTextFieldEdit] = useState(content);
+  
   const handleChangeText = (event) => {
-    context.setTextFieldEdit(event.target.value);
+    setTextFieldEdit(event.target.value);
   };
 
   return (
@@ -18,11 +18,11 @@ function TodoEditComponent({id, content}) {
         <TextFieldStyle
           variant="outlined"
           size="small"
-          value={context.textFieldEdit}
+          value={textFieldEdit}
           onChange={handleChangeText}
           fullWidth
         />
-        <AddButtonStyle variant="contained" onClick={() => context.handleSave(id)}>
+        <AddButtonStyle variant="contained" onClick={() => context.handleSave(id, textFieldEdit)}>
           Save
         </AddButtonStyle>
       </Box>
